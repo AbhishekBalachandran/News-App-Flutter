@@ -31,6 +31,7 @@ class _SearchScreenState extends State<SearchScreen> {
               SliverAppBar(
                 backgroundColor: ColorConstants.backgroundColor,
                 expandedHeight: 100,
+                automaticallyImplyLeading: false,
                 flexibleSpace: FlexibleSpaceBar(
                   background: Column(
                     children: [
