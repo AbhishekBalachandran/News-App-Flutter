@@ -14,8 +14,7 @@ class AllNewsController with ChangeNotifier {
     final decodedData = jsonDecode(response.body);
     if (decodedData['status'] == "ok") {
       newsModel = NewsApiModel.fromJson(decodedData);
-    }
-    else {
+    } else {
       print('Fetch Failed');
     }
     isLoading = false;

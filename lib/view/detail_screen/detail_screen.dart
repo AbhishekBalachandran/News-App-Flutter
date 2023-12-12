@@ -1,3 +1,4 @@
+import 'package:dotted_border/dotted_border.dart';
 import 'package:flutter/material.dart';
 import 'package:news_app/utils/color_constants/color_constants.dart';
 import 'package:url_launcher/url_launcher.dart';
@@ -131,15 +132,41 @@ class DetailScreen extends StatelessWidget {
                 color: ColorConstants.primaryTxtColor,
               ),
             )),
-        Container(
-          height: 300,
-          width: double.infinity,
-          decoration: BoxDecoration(
-            image: DecorationImage(
-                image: NetworkImage(endpoint.urlToImage ?? ''),
-                fit: BoxFit.fill),
-          ),
-        ),
+        endpoint.urlToImage != null
+            ? Container(
+                height: 300,
+                width: double.infinity,
+                decoration: BoxDecoration(
+                  image: DecorationImage(
+                      image: NetworkImage(endpoint.urlToImage ?? ''),
+                      fit: BoxFit.fill),
+                ),
+              )
+            : Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: DottedBorder(
+                  borderType: BorderType.RRect,
+                  dashPattern: [8, 4],
+                  strokeWidth: 1,
+                  color: ColorConstants.secondaryTxtColor,
+                  radius: Radius.circular(12),
+                  padding: EdgeInsets.all(6),
+                  child: ClipRRect(
+                    borderRadius: BorderRadius.all(Radius.circular(12)),
+                    child: Container(
+                      height: 200,
+                      width: double.infinity,
+                      child: Center(
+                        child: Icon(
+                          Icons.image_not_supported_outlined,
+                          size: 30,
+                          color: ColorConstants.secondaryTxtColor,
+                        ),
+                      ),
+                    ),
+                  ),
+                ),
+            ),
         SizedBox(
           width: double.infinity,
           child: Padding(

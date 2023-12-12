@@ -161,10 +161,13 @@ class _PageContainerState extends State<PageContainer> {
                                 SizedBox(
                                   width: 10,
                                 ),
-                                FaIcon(
-                                  FontAwesomeIcons.whatsapp,
-                                  color: ColorConstants.primaryTxtColor,
-                                  size: 20,
+                                IconButton(
+                                  onPressed: () {},
+                                  icon: FaIcon(
+                                    FontAwesomeIcons.whatsapp,
+                                    color: ColorConstants.primaryTxtColor,
+                                    size: 20,
+                                  ),
                                 ),
                                 SizedBox(
                                   width: 10,

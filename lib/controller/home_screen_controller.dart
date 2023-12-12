@@ -6,6 +6,7 @@ import 'package:http/http.dart' as http;
 
 class HomeScreenController with ChangeNotifier {
   NewsApiModel? news_model;
+
   bool isLoading = true;
   Future<void> fetchNewsHomeScreen() async {
     var url = Uri.parse(
@@ -14,8 +15,7 @@ class HomeScreenController with ChangeNotifier {
     final decodedData = jsonDecode(response.body);
     if (decodedData['status'] == "ok") {
       news_model = NewsApiModel.fromJson(decodedData);
-    }
-    else {
+    } else {
       print('Fetch Failed');
     }
     isLoading = false;
